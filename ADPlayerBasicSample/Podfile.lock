@@ -1,52 +1,35 @@
 PODS:
-  - AdPlayerSDK/Sources (1.5.14):
+  - AdPlayerSDK (1.7.3):
     - GoogleAds-IMA-iOS-SDK (~> 3.1)
-    - RxCocoa
-    - RxSwift
-    - Sentry
+    - RxSwift (~> 6.6)
+    - Sentry (~> 8.13)
   - GoogleAds-IMA-iOS-SDK (3.19.2)
-  - RxCocoa (6.6.0):
-    - RxRelay (= 6.6.0)
-    - RxSwift (= 6.6.0)
-  - RxRelay (6.6.0):
-    - RxSwift (= 6.6.0)
   - RxSwift (6.6.0)
-  - Sentry (8.13.0):
-    - Sentry/Core (= 8.13.0)
-    - SentryPrivate (= 8.13.0)
-  - Sentry/Core (8.13.0):
-    - SentryPrivate (= 8.13.0)
-  - SentryPrivate (8.13.0)
-  - SwiftLint (0.53.0)
+  - Sentry (8.15.2):
+    - Sentry/Core (= 8.15.2)
+    - SentryPrivate (= 8.15.2)
+  - Sentry/Core (8.15.2):
+    - SentryPrivate (= 8.15.2)
+  - SentryPrivate (8.15.2)
 
 DEPENDENCIES:
-  - AdPlayerSDK/Sources (from `../..`)
-  - SwiftLint (~> 0.52)
+  - AdPlayerSDK
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
+    - AdPlayerSDK
     - GoogleAds-IMA-iOS-SDK
-    - RxCocoa
-    - RxRelay
     - RxSwift
     - Sentry
     - SentryPrivate
-    - SwiftLint
-
-EXTERNAL SOURCES:
-  AdPlayerSDK:
-    :path: "../.."
 
 SPEC CHECKSUMS:
-  AdPlayerSDK: b0291aca1c4ee80efbb911e22cbb3fc383f58637
+  AdPlayerSDK: 70a828eaff14c2432f9c6346a36692da48fc966e
   GoogleAds-IMA-iOS-SDK: 0e817c05ab26f1b9285c80f4a75e1350a916d50b
-  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
-  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
-  Sentry: a067ca1db308066097314d8478e9682f3b575dee
-  SentryPrivate: 917c91aeb0f199cd079404fab2b50c83e4bad25c
-  SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
+  Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
+  SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
 
-PODFILE CHECKSUM: 102d7bfbd32861b3e581eba74a8b45c0ee90e7cf
+PODFILE CHECKSUM: 3fd587f4760d5a8c309d3a009de18dd2a5c89352
 
 COCOAPODS: 1.13.0
