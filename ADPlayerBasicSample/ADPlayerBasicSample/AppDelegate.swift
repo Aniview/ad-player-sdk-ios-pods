@@ -12,6 +12,7 @@ import UIKit
 private enum Constants {
     static let publisherId = "" // replace with yor data
     static let tagId = "" // replace with yor data
+    static let storeURL = "" // replace with yor data
 }
 
 @main
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         createLandingScreen()
 
-        AdPlayer.initSdk()
+        AdPlayer.initSdk(storeURL: URL(string: Constants.storeURL)!)
 
         return true
     }

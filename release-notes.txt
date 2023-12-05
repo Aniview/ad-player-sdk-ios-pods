@@ -1,0 +1,9 @@
+RELEASE NOTES
+
+1.8.0
+-----------------------------
+* initSdk: new mandatory parameter "storeURL"
+* fixed: preload for "content" in outstream
+* fixed: defaults for gdpr consent string
+* fixed: some analytics events
+* minor fixes
