@@ -1,38 +1,35 @@
 PODS:
-  - AdPlayerSDK/XCFramework (1.8.0):
+  - AdPlayerSDK (1.8.0):
     - GoogleAds-IMA-iOS-SDK (~> 3.1)
-    - RxSwift
-    - Sentry
+    - RxSwift (~> 6.2)
+    - Sentry (~> 8.1)
   - GoogleAds-IMA-iOS-SDK (3.19.2)
   - RxSwift (6.6.0)
-  - Sentry (8.15.2):
-    - Sentry/Core (= 8.15.2)
-    - SentryPrivate (= 8.15.2)
-  - Sentry/Core (8.15.2):
-    - SentryPrivate (= 8.15.2)
-  - SentryPrivate (8.15.2)
+  - Sentry (8.17.1):
+    - Sentry/Core (= 8.17.1)
+    - SentryPrivate (= 8.17.1)
+  - Sentry/Core (8.17.1):
+    - SentryPrivate (= 8.17.1)
+  - SentryPrivate (8.17.1)
 
 DEPENDENCIES:
-  - AdPlayerSDK/XCFramework (from `/Users/pavelyevtukhov/develop/ad-player-sdk-ios/`)
+  - AdPlayerSDK (= 1.8.0)
 
 SPEC REPOS:
   trunk:
+    - AdPlayerSDK
     - GoogleAds-IMA-iOS-SDK
     - RxSwift
     - Sentry
     - SentryPrivate
 
-EXTERNAL SOURCES:
-  AdPlayerSDK:
-    :path: "/Users/pavelyevtukhov/develop/ad-player-sdk-ios/"
-
 SPEC CHECKSUMS:
-  AdPlayerSDK: d42b2b9b02a7d39a67fd0370693236b9c5d49b7a
+  AdPlayerSDK: 68cd8b0f5341c2cbc79cfadee0b4d9714ecb86ec
   GoogleAds-IMA-iOS-SDK: 0e817c05ab26f1b9285c80f4a75e1350a916d50b
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
-  Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
-  SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
+  Sentry: d9f99f9cc13777c5d938650c1e1c85047bb4f0d1
+  SentryPrivate: 839b1e58addf58624087a80b2628e543193fa8ef
 
-PODFILE CHECKSUM: e963e605e528ecfeda6672db1e71d11bb4ddd1e1
+PODFILE CHECKSUM: c9adb1a165f8534051f2f506dfe85a48d3a9b45f
 
 COCOAPODS: 1.14.2
