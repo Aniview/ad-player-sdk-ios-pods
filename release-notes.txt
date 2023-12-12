@@ -1,5 +1,9 @@
 RELEASE NOTES
 
+1.8.1
+-----------------------------
+* analytics improvents ( AV_IDFV, AV_ATTS )
+
 1.8.0
 -----------------------------
 * initSdk: new mandatory parameter "storeURL"
