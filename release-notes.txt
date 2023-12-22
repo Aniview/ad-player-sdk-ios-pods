@@ -1,5 +1,15 @@
 RELEASE NOTES
 
+v1.8.3
+-----------------------------
+Crash Fix: "UIViewControllerHierarchyInconsistency"
+
+v1.8.2
+-----------------------------
+fixed: visibility tracking
+minor fixes
+analytics improvements
+
 1.8.1
 -----------------------------
 * analytics improvents ( AV_IDFV, AV_ATTS )
