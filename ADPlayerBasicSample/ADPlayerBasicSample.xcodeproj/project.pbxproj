@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		3FD32254FEC6566F63AA8D6E /* Pods_ADPlayerBasicSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B16ACE42CBFB9FB78A5AB9 /* Pods_ADPlayerBasicSample.framework */; };
 		80004EEB2A7CEE3F00ACFBDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80004EEA2A7CEE3F00ACFBDB /* AppDelegate.swift */; };
-		80004EEF2A7CEE3F00ACFBDB /* InterstitialExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80004EEE2A7CEE3F00ACFBDB /* InterstitialExampleVC.swift */; };
 		80004EF42A7CEE4000ACFBDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80004EF32A7CEE4000ACFBDB /* Assets.xcassets */; };
 		80004EF72A7CEE4000ACFBDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80004EF52A7CEE4000ACFBDB /* LaunchScreen.storyboard */; };
-		805400942A7CF27D003F107F /* InterstitialExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805400932A7CF27D003F107F /* InterstitialExampleViewModel.swift */; };
 		80E29A342AC1B4A900323B67 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A332AC1B4A900323B67 /* LandingVC.swift */; };
 		80E29A372AC1BE7900323B67 /* SingleAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A362AC1BE7900323B67 /* SingleAdVC.swift */; };
 		80E29A392AC1C24200323B67 /* SingleAdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A382AC1C24200323B67 /* SingleAdViewModel.swift */; };
@@ -23,11 +21,9 @@
 		6FF3F00C470F7A4250B8B05B /* Pods-ADPlayerBasicSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADPlayerBasicSample.debug.xcconfig"; path = "Target Support Files/Pods-ADPlayerBasicSample/Pods-ADPlayerBasicSample.debug.xcconfig"; sourceTree = "<group>"; };
 		80004EE72A7CEE3F00ACFBDB /* ADPlayerBasicSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADPlayerBasicSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80004EEA2A7CEE3F00ACFBDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		80004EEE2A7CEE3F00ACFBDB /* InterstitialExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialExampleVC.swift; sourceTree = "<group>"; };
 		80004EF32A7CEE4000ACFBDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80004EF62A7CEE4000ACFBDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80004EF82A7CEE4000ACFBDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		805400932A7CF27D003F107F /* InterstitialExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialExampleViewModel.swift; sourceTree = "<group>"; };
 		80E29A332AC1B4A900323B67 /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
 		80E29A362AC1BE7900323B67 /* SingleAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdVC.swift; sourceTree = "<group>"; };
 		80E29A382AC1C24200323B67 /* SingleAdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdViewModel.swift; sourceTree = "<group>"; };
@@ -86,22 +82,12 @@
 			children = (
 				80E29A332AC1B4A900323B67 /* LandingVC.swift */,
 				80E29A352AC1BE2100323B67 /* Single Ad */,
-				805400922A7CF254003F107F /* Interstitial */,
 				80004EEA2A7CEE3F00ACFBDB /* AppDelegate.swift */,
 				80004EF32A7CEE4000ACFBDB /* Assets.xcassets */,
 				80004EF52A7CEE4000ACFBDB /* LaunchScreen.storyboard */,
 				80004EF82A7CEE4000ACFBDB /* Info.plist */,
 			);
 			path = ADPlayerBasicSample;
-			sourceTree = "<group>";
-		};
-		805400922A7CF254003F107F /* Interstitial */ = {
-			isa = PBXGroup;
-			children = (
-				80004EEE2A7CEE3F00ACFBDB /* InterstitialExampleVC.swift */,
-				805400932A7CF27D003F107F /* InterstitialExampleViewModel.swift */,
-			);
-			path = Interstitial;
 			sourceTree = "<group>";
 		};
 		80E29A352AC1BE2100323B67 /* Single Ad */ = {
@@ -246,9 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80E29A392AC1C24200323B67 /* SingleAdViewModel.swift in Sources */,
-				805400942A7CF27D003F107F /* InterstitialExampleViewModel.swift in Sources */,
 				80E29A342AC1B4A900323B67 /* LandingVC.swift in Sources */,
-				80004EEF2A7CEE3F00ACFBDB /* InterstitialExampleVC.swift in Sources */,
 				80004EEB2A7CEE3F00ACFBDB /* AppDelegate.swift in Sources */,
 				80E29A372AC1BE7900323B67 /* SingleAdVC.swift in Sources */,
 			);

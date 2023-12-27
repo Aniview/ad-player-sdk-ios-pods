@@ -1,5 +1,15 @@
 RELEASE NOTES
 
+v1.9.0
+*  new "rxProfile" optional parameter:
+    * auto (default). Will choose the best for current platform
+    * rxSwift
+    * combine (for iOS >= 13.0)
+* RxSwift dependency is optional for iOS >= 13.0 ( see "rxProfile" )
+* Sentry dependency is optional
+* AdPlayerSDK XCFramework: change Match O-type to "dynamic library"
+* bugfix: "Class <> is implemented in both"
+
 v1.8.3
 -----------------------------
 Crash Fix: "UIViewControllerHierarchyInconsistency"

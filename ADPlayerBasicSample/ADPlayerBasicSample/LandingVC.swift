@@ -11,6 +11,7 @@ import UIKit
 final class LandingVC: UIViewController {
     private let publisherId: String
     private let tagId: String
+    private var playerTag: AdPlayerTag?
 
     init(publisherId: String, tagId: String) {
         self.publisherId = publisherId
@@ -51,9 +52,11 @@ final class LandingVC: UIViewController {
         action: #selector(onSingleAdTap)
     )
 
-    private lazy var interstitialButton: UIButton = makeMenuButton(
-        title: "Interstitial",
-        action: #selector(onInterstitialTap)
+    private lazy var preloadButton = makeMenuButton(
+        title: "Preload",
+        action: #selector(onPreloadTap),
+        titleColor: .gray,
+        backGroundColor: .systemBackground
     )
 
     private func makeMenuButton(
@@ -66,8 +69,8 @@ final class LandingVC: UIViewController {
         button.setTitle(title, for: .normal)
         button.addTarget(self, action: action, for: .touchUpInside)
         var configuration = UIButton.Configuration.filled()
-        button.setTitleColor(.white, for: .normal)
-        configuration.baseBackgroundColor = .gray
+        button.setTitleColor(titleColor, for: .normal)
+        configuration.baseBackgroundColor = backGroundColor
         configuration.contentInsets = .init(top: 10, leading: 20, bottom: 10, trailing: 20)
         button.configuration = configuration
         return button
@@ -85,7 +88,7 @@ final class LandingVC: UIViewController {
         ])
 
         stackView.addArrangedSubview(singleAdButton)
-        stackView.addArrangedSubview(interstitialButton)
+        stackView.addArrangedSubview(preloadButton)
 
         view.addSubview(progressView)
         progressView.translatesAutoresizingMaskIntoConstraints = false
@@ -93,23 +96,30 @@ final class LandingVC: UIViewController {
             progressView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             progressView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-        initializeTag()
+        initializeTag() {}
     }
 
     @objc
     private func onSingleAdTap() {
-        let viewController = SingleAdVC(tagId: tagId)
+        let viewController = SingleAdVC(publisherId: publisherId, tagId: tagId)
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     @objc
-    private func onInterstitialTap() {
-        let viewController = InterstitialExampleVC(tagId: tagId)
-        navigationController?.pushViewController(viewController, animated: true)
+    private func onPreloadTap() {
+        initializeTag { [weak self] in
+            guard let self = self,
+                  let playerTag = playerTag else {
+                return
+            }
+            isInProgress = true
+            playerTag.preload { [weak self] _ in
+                self?.isInProgress = false
+            }
+        }
     }
 
-    private func initializeTag() {
-        stackView.isHidden = true
+    private func initializeTag(completion: @escaping () -> Void) {
         let tag = AdPlayerTagConfiguration(tagId: tagId)
         let publisher = AdPlayerPublisherConfiguration(publisherId: publisherId, tag)
         isInProgress = true
@@ -117,15 +127,16 @@ final class LandingVC: UIViewController {
             guard let self = self else { return }
             isInProgress = false
             switch result {
-            case .success:
-                stackView.isHidden = false
+            case .success(let readyTags):
+                self.playerTag = readyTags.first { $0.id == self.tagId }
             case .failure(let error):
-                showAlert(message: "Failed to initialize publisher.  \(error.localizedDescription)")
+                showAlert("Failed to initialize publisher.  \(error.localizedDescription)")
             }
+            completion()
         }
     }
 
-    private func showAlert(message: String) {
+    private func showAlert(_ message: String) {
         let alert = UIAlertController(
             title: "Error",
             message: message,
