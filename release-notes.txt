@@ -1,5 +1,8 @@
 RELEASE NOTES
 
+v1.9.2
+Bug fix: player collapsed when "content" video is playing
+
 v1.9.0
 *  new "rxProfile" optional parameter:
     * auto (default). Will choose the best for current platform
