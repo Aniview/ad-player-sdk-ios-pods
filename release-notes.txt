@@ -1,4 +1,9 @@
 RELEASE NOTES
+v1.9.4
+* Added: "WaterfallEnd" event
+* Added GPP (Global Privacy Platform) support
+* Fixed: Floating feature
+* Fixed: "closed" event
 
 v1.9.2
 Bug fix: player collapsed when "content" video is playing
