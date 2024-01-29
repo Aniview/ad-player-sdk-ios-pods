@@ -1,4 +1,8 @@
 RELEASE NOTES
+v1.9.5
+* minor fixes
+* open some methods for overriding
+
 v1.9.4
 * Added: "WaterfallEnd" event
 * Added GPP (Global Privacy Platform) support
