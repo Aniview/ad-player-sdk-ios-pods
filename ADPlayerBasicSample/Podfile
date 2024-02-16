@@ -3,7 +3,7 @@ platform :ios, '14.0'
 target 'ADPlayerBasicSample' do
   use_frameworks!
 
-  pod 'AdPlayerSDK', '1.9.5'
+  pod 'AdPlayerSDK', '1.9.7'
 
   pod 'RxSwift' # required when iOS < 13
 end

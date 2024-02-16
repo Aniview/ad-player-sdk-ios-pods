@@ -52,6 +52,11 @@ final class LandingVC: UIViewController {
         action: #selector(onSingleAdTap)
     )
 
+    private lazy var tableViewButton = makeMenuButton(
+        title: "TableView",
+        action: #selector(onTableViewExampleTap)
+    )
+
     private lazy var preloadButton = makeMenuButton(
         title: "Preload",
         action: #selector(onPreloadTap),
@@ -88,6 +93,7 @@ final class LandingVC: UIViewController {
         ])
 
         stackView.addArrangedSubview(singleAdButton)
+        stackView.addArrangedSubview(tableViewButton)
         stackView.addArrangedSubview(preloadButton)
 
         view.addSubview(progressView)
@@ -102,6 +108,12 @@ final class LandingVC: UIViewController {
     @objc
     private func onSingleAdTap() {
         let viewController = SingleAdVC(publisherId: publisherId, tagId: tagId)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    @objc
+    private func onTableViewExampleTap() {
+        let viewController = TableViewExampleVC(publisherId: publisherId, tagId: tagId)
         navigationController?.pushViewController(viewController, animated: true)
     }
 
