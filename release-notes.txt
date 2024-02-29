@@ -1,3 +1,8 @@
+v1.10.0
+Added:
+* new API "getReadyAdsCount"
+  The method gets the count of downloaded and not yet played Ads
+
 v1.9.8
 fixed: Player pauses content video while it's delegating IMA to native SDK
 added: Allow player to float without floating scope
