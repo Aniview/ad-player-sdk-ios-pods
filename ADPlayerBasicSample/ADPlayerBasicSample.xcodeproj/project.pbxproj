@@ -18,6 +18,7 @@
 		80776A352B7FB41400E0102E /* TextInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80776A342B7FB41400E0102E /* TextInfoCell.swift */; };
 		80776A372B7FB45F00E0102E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80776A362B7FB45F00E0102E /* UIView+Extensions.swift */; };
 		80776A392B7FB53500E0102E /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80776A382B7FB53500E0102E /* UITableView+Extensions.swift */; };
+		80AC19EA2B90D98A007B405F /* InterstitialExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC19E92B90D98A007B405F /* InterstitialExampleVC.swift */; };
 		80E29A342AC1B4A900323B67 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A332AC1B4A900323B67 /* LandingVC.swift */; };
 		80E29A372AC1BE7900323B67 /* SingleAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A362AC1BE7900323B67 /* SingleAdVC.swift */; };
 		80E29A392AC1C24200323B67 /* SingleAdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A382AC1C24200323B67 /* SingleAdViewModel.swift */; };
@@ -38,6 +39,7 @@
 		80776A342B7FB41400E0102E /* TextInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInfoCell.swift; sourceTree = "<group>"; };
 		80776A362B7FB45F00E0102E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		80776A382B7FB53500E0102E /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		80AC19E92B90D98A007B405F /* InterstitialExampleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialExampleVC.swift; sourceTree = "<group>"; };
 		80E29A332AC1B4A900323B67 /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
 		80E29A362AC1BE7900323B67 /* SingleAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdVC.swift; sourceTree = "<group>"; };
 		80E29A382AC1C24200323B67 /* SingleAdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdViewModel.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		80004EE92A7CEE3F00ACFBDB /* ADPlayerBasicSample */ = {
 			isa = PBXGroup;
 			children = (
+				80AC19E82B90D98A007B405F /* Interstitial */,
 				80776A2B2B7FAEC600E0102E /* TableView */,
 				80E29A332AC1B4A900323B67 /* LandingVC.swift */,
 				80E29A352AC1BE2100323B67 /* Single Ad */,
@@ -117,6 +120,14 @@
 				80776A382B7FB53500E0102E /* UITableView+Extensions.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		80AC19E82B90D98A007B405F /* Interstitial */ = {
+			isa = PBXGroup;
+			children = (
+				80AC19E92B90D98A007B405F /* InterstitialExampleVC.swift */,
+			);
+			path = Interstitial;
 			sourceTree = "<group>";
 		};
 		80E29A352AC1BE2100323B67 /* Single Ad */ = {
@@ -253,6 +264,7 @@
 				80004EEB2A7CEE3F00ACFBDB /* AppDelegate.swift in Sources */,
 				80776A312B7FB34600E0102E /* TableViewDataSource.swift in Sources */,
 				80E29A372AC1BE7900323B67 /* SingleAdVC.swift in Sources */,
+				80AC19EA2B90D98A007B405F /* InterstitialExampleVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

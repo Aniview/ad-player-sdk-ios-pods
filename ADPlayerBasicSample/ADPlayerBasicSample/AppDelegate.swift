@@ -10,8 +10,8 @@ import AdPlayerSDK
 import UIKit
 
 private enum Constants {
-    static let publisherId = "609a943be65f6b2a0c3ffbe5" // replace with yor data
-    static let tagId = "63fc78e436e14ce9ad0f5a66" // replace with yor data
+    static let publisherId = "63d8ff1bad47af25a704c884" // replace with yor data
+    static let tagId = "64d23f8ebcce13e871070576" // replace with yor data
     static let storeURL = "https://apps.apple.com/us/app/adplayer-sample/id1234567" // replace with yor data
 }
 

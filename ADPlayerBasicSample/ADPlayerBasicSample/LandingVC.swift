@@ -57,6 +57,11 @@ final class LandingVC: UIViewController {
         action: #selector(onTableViewExampleTap)
     )
 
+    private lazy var interstitialButton = makeMenuButton(
+        title: "Interstitial",
+        action: #selector(onInterstitialExampleTap)
+    )
+
     private lazy var preloadButton = makeMenuButton(
         title: "Preload",
         action: #selector(onPreloadTap),
@@ -94,6 +99,7 @@ final class LandingVC: UIViewController {
 
         stackView.addArrangedSubview(singleAdButton)
         stackView.addArrangedSubview(tableViewButton)
+        stackView.addArrangedSubview(interstitialButton)
         stackView.addArrangedSubview(preloadButton)
 
         view.addSubview(progressView)
@@ -114,6 +120,12 @@ final class LandingVC: UIViewController {
     @objc
     private func onTableViewExampleTap() {
         let viewController = TableViewExampleVC(publisherId: publisherId, tagId: tagId)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    @objc
+    private func onInterstitialExampleTap() {
+        let viewController = InterstitialExampleVC(publisherId: publisherId, tagId: tagId)
         navigationController?.pushViewController(viewController, animated: true)
     }
 
