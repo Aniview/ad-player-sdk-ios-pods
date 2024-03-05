@@ -1,3 +1,9 @@
+v1.10.1
+Improve:  preload for interstitial ( preload + "getReadyAdsCount" )
+ADD: support for close button delay
+ADD: support for close button only for companion
+FIX: disable fullscreen for interstitial
+
 v1.10.0
 Added:
 * new API "getReadyAdsCount"
