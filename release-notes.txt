@@ -1,3 +1,8 @@
+v1.10.3
+Add: dSym
+Fix: performance issue with pdf assets
+Fix: NSInternalInconsistencyException (webView::runJavaScriptTextInputPanelWithPrompt)
+
 v1.10.1
 Improve:  preload for interstitial ( preload + "getReadyAdsCount" )
 ADD: support for close button delay
