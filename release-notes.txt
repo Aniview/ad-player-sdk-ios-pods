@@ -1,3 +1,7 @@
+v1.10.4
+XCFramework structure change:
+ * resources were moved to AdPlayerResources.bundle
+
 v1.10.3
 Add: dSym
 Fix: performance issue with pdf assets
