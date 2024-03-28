@@ -1,3 +1,8 @@
+v1.10.5
+* Add: API that alows to set custom content into the player
+* Update: assets catalog
+* Remove: Logz.io and CoreData
+
 v1.10.4
 XCFramework structure change:
  * resources were moved to AdPlayerResources.bundle
