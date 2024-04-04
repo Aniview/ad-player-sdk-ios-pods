@@ -1,3 +1,7 @@
+v1.10.6
+* Fixed: CPU spikes to over 400% when the user navigates from screen to screen
+* Fixed: memory leaks
+
 v1.10.5
 * Add: API that alows to set custom content into the player
 * Update: assets catalog
