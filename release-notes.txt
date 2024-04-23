@@ -1,3 +1,6 @@
+v1.10.7
+* Fixed: "pause" works incorrectly when the AD has not yet started
+
 v1.10.6
 * Fixed: CPU spikes to over 400% when the user navigates from screen to screen
 * Fixed: memory leaks
