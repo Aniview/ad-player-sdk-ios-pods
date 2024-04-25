@@ -1,3 +1,7 @@
+v1.10.8
+* Add: meta data for the Impression event
+* Remove: AdPlayerResources bundle
+
 v1.10.7
 * Fixed: "pause" works incorrectly when the AD has not yet started
 

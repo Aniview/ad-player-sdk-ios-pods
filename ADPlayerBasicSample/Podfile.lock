@@ -1,11 +1,11 @@
 PODS:
-  - AdPlayerSDK (1.10.6):
+  - AdPlayerSDK (1.10.8):
     - GoogleAds-IMA-iOS-SDK (~> 3.1)
-  - GoogleAds-IMA-iOS-SDK (3.20.0)
+  - GoogleAds-IMA-iOS-SDK (3.22.1)
   - RxSwift (6.6.0)
 
 DEPENDENCIES:
-  - AdPlayerSDK (= 1.10.6)
+  - AdPlayerSDK (= 1.10.8)
   - RxSwift
 
 SPEC REPOS:
@@ -15,10 +15,10 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
-  AdPlayerSDK: 97e2f00b810e6cc41f26a905c9d5473225976edf
-  GoogleAds-IMA-iOS-SDK: f9a6bd69e34f6c3a2d6b2f7cd56814b78fc680f9
+  AdPlayerSDK: 8304b399f47c6d4c92b831424c4fe0f253f3229d
+  GoogleAds-IMA-iOS-SDK: 160c3616b8371b58016e30aaf441e71d6d9e8f7d
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
 
-PODFILE CHECKSUM: 559974011062c24978bc441b602acc855b22e6db
+PODFILE CHECKSUM: f94ae5dbfc0377a1a1f152cbfec3342eb2217c51
 
 COCOAPODS: 1.14.3

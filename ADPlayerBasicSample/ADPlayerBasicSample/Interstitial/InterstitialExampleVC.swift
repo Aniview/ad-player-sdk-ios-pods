@@ -25,6 +25,7 @@ final class InterstitialExampleVC: UIViewController {
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.textColor = .systemBlue
         return label
     }()
 
@@ -61,6 +62,7 @@ final class InterstitialExampleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .systemBackground
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         NSLayoutConstraint.activate([
@@ -125,7 +127,7 @@ final class InterstitialExampleVC: UIViewController {
         }
 
         statusLabel.text = "Waiting for Ads ready. Attempt: \(attempt)..."
-        playerTag.getReadyAdsCount { [weak self] count in
+        playerTag.getReadyAdsCount { [weak self] count in // getReadyAdsCount works only for outstream
             guard let self = self else { return }
             if count > 0 {
                 onAdsReady()
