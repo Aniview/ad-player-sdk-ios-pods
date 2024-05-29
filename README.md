@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 YourViewController.swift
 ```java
-import SpotImStandaloneAds
+import AdPlayerSDK
 
 class YourViewController: UIViewController {
     override func viewDidLoad() {
