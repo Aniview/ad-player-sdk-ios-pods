@@ -8,13 +8,28 @@
 
 ## Installation
 
-SpotImStandaloneAds is available through [CocoaPods](https://cocoapods.org). To install
+AdPlayerSDK is available through [CocoaPods](https://cocoapods.org). To install
 it, add the following line to your Podfile:
 
 ```ruby
 target 'YourApp' do
   pod 'AdPlayerSDK'
+  
+  # uncomment the following to use RxSwift based config (iOS < 13)
+  # pod 'RxSwift'
 end
+
+
+# uncomment the following to use RxSwift based config (iOS < 13)
+#post_install do |installer|
+#  installer.pods_project.targets.each do |target|
+#    target.build_configurations.each do |config|
+#      if target.name == 'RxSwift'
+#           config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+#      end
+#    end
+#  end
+#end
 ```
 
 ## Usage example
@@ -28,15 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool { // swiftlint:disable:this line_length
 
         createLandingScreen()
-        AdPlayer.initSdk(storeURL: URL(string: "https:apps.apple.com/.....")!)
+
+        AdPlayer.initSdk()
 
         return true
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        /// NOTE: request GDPR consent if needed
-        /// https://support.google.com/admanager/answer/7673898?hl=en&ref_topic=10366389&sjid=10800144486024696532-EU
-
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization { status in
                 print("Tracking: authorized:", status == .authorized)
@@ -54,19 +67,14 @@ class YourViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /// NOTE: request GDPR consent if needed
-        /// https://support.google.com/admanager/answer/7673898?hl=en&ref_topic=10366389&sjid=10800144486024696532-EU
-    
-        let placement = AdPlayerPlacementViewController(tagId: tagId)
-        placement.view.translatesAutoresizingMaskIntoConstraints = false
-        addChild(placement)
-        view.addSubview(placement.view)
+        let placement = AdPlayerPlacementView(tagId: tagId)
+        placement.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(placement)
         NSLayoutConstraint.activate([
-            placement.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            placement.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            placement.view.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+            placement.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            placement.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            placement.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor)
         ])
-        placement.didMove(toParent: self)
     }
 }
 ```
@@ -81,4 +89,3 @@ https://aniview.com/
 ## License
 
 All rights reserved to ANIVIEW LTD 2023
-

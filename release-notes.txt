@@ -1,3 +1,14 @@
+v1.11.0
+* API change: the Ad.Placement is a UIView now
+  ( rather than a UIViewController )
+* New: AD Label support
+* Bug Fixes:
+    * The player does not resume after opening App Switcher selecting another app and switching back to the App
+    * The player is not killed after locking the device for >5 minutes
+    * Player sizing in fullscreen/interstitial mode
+    * Close button show/hide
+    * Minor bugs and issues
+
 v1.10.8
 * Add: meta data for the Impression event
 * Remove: AdPlayerResources bundle

@@ -58,16 +58,14 @@ final class SingleAdVC: UIViewController {
             border.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
 
-        let placement = AdPlayerPlacementViewController(tagId: tagId)
-        placement.view.translatesAutoresizingMaskIntoConstraints = false
-        addChild(placement)
-        border.addSubview(placement.view)
+        let placement = AdPlayerPlacementView(tagId: tagId)
+        placement.translatesAutoresizingMaskIntoConstraints = false
+        border.addSubview(placement)
         NSLayoutConstraint.activate([
-            placement.view.leadingAnchor.constraint(equalTo: border.leadingAnchor),
-            placement.view.trailingAnchor.constraint(equalTo: border.trailingAnchor),
-            placement.view.topAnchor.constraint(equalTo: border.topAnchor),
-            placement.view.bottomAnchor.constraint(equalTo: border.bottomAnchor, constant: -1)
+            placement.leadingAnchor.constraint(equalTo: border.leadingAnchor),
+            placement.trailingAnchor.constraint(equalTo: border.trailingAnchor),
+            placement.topAnchor.constraint(equalTo: border.topAnchor),
+            placement.bottomAnchor.constraint(equalTo: border.bottomAnchor, constant: -1)
         ])
-        placement.didMove(toParent: self)
     }
 }

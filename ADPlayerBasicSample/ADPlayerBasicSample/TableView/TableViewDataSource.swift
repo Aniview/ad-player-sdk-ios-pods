@@ -18,13 +18,9 @@ enum TableRow {
 }
 
 final class TableViewDataSource: NSObject {
-    weak var parentViewController: UIViewController?
-
     init(
-        parentViewController: UIViewController,
         tableView: UITableView
     ) {
-        self.parentViewController = parentViewController
         tableView.register(TextInfoCell.self)
         tableView.register(AdCell.self)
     }
@@ -62,16 +58,9 @@ extension TableViewDataSource: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath,
         slot: AdSlot
     ) -> UITableViewCell {
-        guard let parentViewController = parentViewController else {
-            fatalError()
-        }
-
         let cell: AdCell = tableView.dequeue()
 
-        cell.configure(
-            adSlot: slot,
-            parentVC: parentViewController
-        )
+        cell.configure(adSlot: slot)
         cell.separatorInset = .init(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude) // hide separator
         cell.selectionStyle = .none
         return cell

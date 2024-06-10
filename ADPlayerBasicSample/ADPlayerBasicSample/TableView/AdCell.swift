@@ -9,14 +9,14 @@ import AdPlayerSDK
 import UIKit
 
 final class AdCell: UITableViewCell {
-    private weak var adPlaterVC: UIViewController?
+    private weak var adPlacement: UIView?
     private var adSlot: AdSlot?
 
-    func configure(adSlot: AdSlot, parentVC: UIViewController) {
+    func configure(adSlot: AdSlot) {
         guard self.adSlot != adSlot else { return }
 
         self.adSlot = adSlot
-        addAdPlacement(tagId: adSlot.tagId, parentVC: parentVC)
+        addAdPlacement(tagId: adSlot.tagId)
         
         AdPlayer.initializePublisher(
             publisherId: adSlot.publisherId,
@@ -31,25 +31,19 @@ final class AdCell: UITableViewCell {
         }
     }
 
-    private func addAdPlacement(tagId: String, parentVC: UIViewController) {
+    private func addAdPlacement(tagId: String) {
         removeAdPlayer()
-        let placement = AdPlayerPlacementViewController(tagId: tagId)
-        placement.view.translatesAutoresizingMaskIntoConstraints = false
-        parentVC.addChild(placement)
-        contentView.addSubview(placement.view)
-        placement.view.bindConstraintsToContainer(insets: .init(top: 1, left: 0, bottom: 1, right: 0))
-        placement.didMove(toParent: parentVC)
-        self.adPlaterVC = placement
+        let placement = AdPlayerPlacementView(tagId: tagId)
+        placement.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(placement)
+        placement.bindConstraintsToContainer(insets: .init(top: 1, left: 0, bottom: 1, right: 0))
+        self.adPlacement = placement
         contentView.layer.borderColor = UIColor.green.cgColor
         contentView.layer.borderWidth = 2
     }
 
     private func removeAdPlayer() {
-        guard let adPlaterVC else { return }
-
-        adPlaterVC.willMove(toParent: nil)
-        adPlaterVC.view.removeFromSuperview()
-        adPlaterVC.removeFromParent()
-        self.adPlaterVC = nil
+        adPlacement?.removeFromSuperview()
+        self.adPlacement = nil
     }
 }

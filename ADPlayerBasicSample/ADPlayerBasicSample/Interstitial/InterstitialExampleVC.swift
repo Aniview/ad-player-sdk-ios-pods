@@ -42,13 +42,6 @@ final class InterstitialExampleVC: UIViewController {
         return button
     }()
 
-    private lazy var preloadAndShowButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Preload and Show Interstitial", for: .normal)
-        button.addTarget(self, action: #selector(onPreloadAndShowButtonTap), for: .touchUpInside)
-        return button
-    }()
-
     init(publisherId: String, tagId: String) {
         self.publisherId = publisherId
         self.tagId = tagId
@@ -71,7 +64,6 @@ final class InterstitialExampleVC: UIViewController {
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         stackView.addArrangedSubview(showButton)
-        stackView.addArrangedSubview(preloadAndShowButton)
 
         statusLabel.text = "Loading Tag..."
 
@@ -103,46 +95,8 @@ final class InterstitialExampleVC: UIViewController {
 
     @objc
     private func onShowButtonTap() {
-        onAdsReady()
-    }
-
-    @objc
-    private func onPreloadAndShowButtonTap() {
-        guard let playerTag = playerTag else { return }
-        inProgress = true
-        statusLabel.text = "Preloading ..."
-        playerTag.invalidatePreloadCache() // needed when it's interstitial
-        playerTag.preload { [weak self] error in
-            guard let self = self else { return }
-            onStartLoadingAds(attempt: 0)
-        }
-    }
-
-    private func onStartLoadingAds(attempt: Int) {
-        guard let playerTag = playerTag else { return }
-        guard attempt < 10 else {
-            statusLabel.text = "No Ads"
-            inProgress = false
-            return
-        }
-
-        statusLabel.text = "Waiting for Ads ready. Attempt: \(attempt)..."
-        playerTag.getReadyAdsCount { [weak self] count in // getReadyAdsCount works only for outstream
-            guard let self = self else { return }
-            if count > 0 {
-                onAdsReady()
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.onStartLoadingAds(attempt: attempt + 1)
-                }
-            }
-        }
-    }
-
-    private func onAdsReady() {
         guard let playerTag = playerTag else { return }
         statusLabel.text = ""
-        inProgress = false
         let interstitialBuilder = playerTag.asInterstitial()
         interstitialBuilder.launch()
     }

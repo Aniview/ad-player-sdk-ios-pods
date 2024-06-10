@@ -42,10 +42,7 @@ final class TableViewExampleVC: UIViewController {
     }
 
     private func fillDataSource() {
-        let dataSource = TableViewDataSource(
-            parentViewController: self,
-            tableView: tableView
-        )
+        let dataSource = TableViewDataSource(tableView: tableView)
 
         let textRows: [TableRow] = (4...20).map {
             let text = MockText.texts[$0 % MockText.texts.count]
