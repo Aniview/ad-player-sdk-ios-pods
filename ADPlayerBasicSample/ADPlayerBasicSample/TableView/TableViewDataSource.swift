@@ -14,7 +14,7 @@ struct AdSlot: Equatable {
 
 enum TableRow {
     case text(_ text: String)
-    case adPlacement(_ slot: AdSlot)
+    case adPlacement(_ tagId: String)
 }
 
 final class TableViewDataSource: NSObject {
@@ -48,19 +48,19 @@ extension TableViewDataSource: UITableViewDataSource {
                 )
             )
             return cell
-        case .adPlacement(let slot):
-            return makeAdCell(tableView, cellForRowAt: indexPath, slot: slot)
+        case .adPlacement(let tagId):
+            return makeAdCell(tableView, cellForRowAt: indexPath, tagId: tagId)
         }
     }
 
     private func makeAdCell(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath,
-        slot: AdSlot
+        tagId: String
     ) -> UITableViewCell {
         let cell: AdCell = tableView.dequeue()
 
-        cell.configure(adSlot: slot)
+        cell.configure(tagId: tagId)
         cell.separatorInset = .init(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude) // hide separator
         cell.selectionStyle = .none
         return cell

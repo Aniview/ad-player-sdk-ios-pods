@@ -21,7 +21,6 @@
 		80AC19EA2B90D98A007B405F /* InterstitialExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC19E92B90D98A007B405F /* InterstitialExampleVC.swift */; };
 		80E29A342AC1B4A900323B67 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A332AC1B4A900323B67 /* LandingVC.swift */; };
 		80E29A372AC1BE7900323B67 /* SingleAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A362AC1BE7900323B67 /* SingleAdVC.swift */; };
-		80E29A392AC1C24200323B67 /* SingleAdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E29A382AC1C24200323B67 /* SingleAdViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 		80AC19E92B90D98A007B405F /* InterstitialExampleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialExampleVC.swift; sourceTree = "<group>"; };
 		80E29A332AC1B4A900323B67 /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
 		80E29A362AC1BE7900323B67 /* SingleAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdVC.swift; sourceTree = "<group>"; };
-		80E29A382AC1C24200323B67 /* SingleAdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdViewModel.swift; sourceTree = "<group>"; };
 		F4B16ACE42CBFB9FB78A5AB9 /* Pods_ADPlayerBasicSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADPlayerBasicSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				80E29A362AC1BE7900323B67 /* SingleAdVC.swift */,
-				80E29A382AC1C24200323B67 /* SingleAdViewModel.swift */,
 			);
 			path = "Single Ad";
 			sourceTree = "<group>";
@@ -254,7 +251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				80776A332B7FB3D800E0102E /* MockText.swift in Sources */,
-				80E29A392AC1C24200323B67 /* SingleAdViewModel.swift in Sources */,
 				80776A372B7FB45F00E0102E /* UIView+Extensions.swift in Sources */,
 				80776A352B7FB41400E0102E /* TextInfoCell.swift in Sources */,
 				80776A2F2B7FAF7700E0102E /* AdCell.swift in Sources */,

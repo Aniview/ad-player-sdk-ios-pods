@@ -11,39 +11,22 @@ import Combine
 
 final class SingleAdVC: UIViewController {
     private let tagId: String
-    private let viewModel: SingleAdViewModel
-    private var cancellables = Set<AnyCancellable>()
 
-    init(publisherId: String, tagId: String) {
+    init(tagId: String) {
         self.tagId = tagId
-        self.viewModel = .init(publisherId: publisherId, tagId: tagId)
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-        subscribeToViewModel()
-        addAdPlacement()
-    }
 
-    private func subscribeToViewModel() {
-        viewModel.errorMessage
-            .receive(on: DispatchQueue.main)
-            .sink { [unowned self] message in
-            let alert = UIAlertController(
-                title: "Error",
-                message: message,
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-            self.present(alert, animated: true)
-        }.store(in: &cancellables)
+        addAdPlacement()
     }
 
     private func addAdPlacement() {

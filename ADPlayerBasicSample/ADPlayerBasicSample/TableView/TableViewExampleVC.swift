@@ -11,7 +11,6 @@ import UIKit
 import Combine
 
 final class TableViewExampleVC: UIViewController {
-    private let publisherId: String
     private let tagId: String
     private var dataSource: TableViewDataSource?
 
@@ -22,8 +21,7 @@ final class TableViewExampleVC: UIViewController {
         return tableView
     }()
 
-    init(publisherId: String, tagId: String) {
-        self.publisherId = publisherId
+    init( tagId: String) {
         self.tagId = tagId
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,14 +46,11 @@ final class TableViewExampleVC: UIViewController {
             let text = MockText.texts[$0 % MockText.texts.count]
             return .text(text)
         }
-        let adSlot = AdSlot(publisherId: publisherId, tagId: tagId)
         var rows: [TableRow] = [
             .text(MockText.texts[0]),
-            .adPlacement(adSlot)
+            .adPlacement(tagId)
         ]
         rows.append(contentsOf: textRows)
-        rows.append(.adPlacement(adSlot))
-        rows.append(.text(MockText.texts[0]))
 
         dataSource.setData(rows: rows)
         tableView.dataSource = dataSource
