@@ -10,25 +10,13 @@ import UIKit
 
 final class AdCell: UITableViewCell {
     private weak var adPlacement: UIView?
-    private var adSlot: AdSlot?
+    private var tagId: String?
 
-    func configure(adSlot: AdSlot) {
-        guard self.adSlot != adSlot else { return }
+    func configure(tagId: String) {
+        guard self.tagId != tagId else { return }
 
-        self.adSlot = adSlot
-        addAdPlacement(tagId: adSlot.tagId)
-        
-        AdPlayer.initializePublisher(
-            publisherId: adSlot.publisherId,
-            tagId: adSlot.tagId
-        ) { result in
-            switch result {
-            case .success:
-                break
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        self.tagId = tagId
+        addAdPlacement(tagId: tagId)
     }
 
     private func addAdPlacement(tagId: String) {

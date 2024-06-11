@@ -80,15 +80,18 @@ final class InterstitialExampleVC: UIViewController {
 
     private func fetchPlayerTag() {
         inProgress = true
-        AdPlayer.initializePublisher(publisherId: publisherId, tagId: tagId) { [weak self] result in
+        AdPlayer.getTagWhenReady(tagId: tagId) { [weak self] result in
             guard let self = self else { return }
-            switch result {
-            case .success(let playerTag):
-                self.playerTag = playerTag
-                inProgress = false
-                statusLabel.text = "Ready to load ADs"
-            case .failure(let error):
-                print(error.localizedDescription)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch result {
+                case .success(let playerTag):
+                    self.playerTag = playerTag
+                    inProgress = false
+                    statusLabel.text = "Ready to load ADs"
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }

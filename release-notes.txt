@@ -1,3 +1,6 @@
+v1.11.1
+*  Add custom Instream content: cmsId and cmsType
+
 v1.11.0
 * API change: the Ad.Placement is a UIView now
   ( rather than a UIViewController )

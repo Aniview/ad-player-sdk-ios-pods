@@ -113,13 +113,13 @@ final class LandingVC: UIViewController {
 
     @objc
     private func onSingleAdTap() {
-        let viewController = SingleAdVC(publisherId: publisherId, tagId: tagId)
+        let viewController = SingleAdVC(tagId: tagId)
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     @objc
     private func onTableViewExampleTap() {
-        let viewController = TableViewExampleVC(publisherId: publisherId, tagId: tagId)
+        let viewController = TableViewExampleVC(tagId: tagId)
         navigationController?.pushViewController(viewController, animated: true)
     }
 
@@ -144,19 +144,23 @@ final class LandingVC: UIViewController {
     }
 
     private func initializeTag(completion: @escaping () -> Void) {
-        let tag = AdPlayerTagConfiguration(tagId: tagId)
-        let publisher = AdPlayerPublisherConfiguration(publisherId: publisherId, tag)
+        let tagConfig = AdPlayerTagConfiguration(tagId: tagId)
+
+        let publisher = AdPlayerPublisherConfiguration(publisherId: publisherId, tagConfig)
         isInProgress = true
         AdPlayer.initializePublisher(publisher) { [weak self] result in
-            guard let self = self else { return }
-            isInProgress = false
-            switch result {
-            case .success(let readyTags):
-                self.playerTag = readyTags.first { $0.id == self.tagId }
-            case .failure(let error):
-                showAlert("Failed to initialize publisher.  \(error.localizedDescription)")
+            guard let self else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                isInProgress = false
+                switch result {
+                case .success(let readyTags):
+                    playerTag = readyTags.first
+                case .failure(let error):
+                    showAlert("Failed to initialize publisher.  \(error.localizedDescription)")
+                }
+                completion()
             }
-            completion()
         }
     }
 
