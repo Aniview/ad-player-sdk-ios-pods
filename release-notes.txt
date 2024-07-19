@@ -1,3 +1,16 @@
+v1.11.7
+public API:
+add support set cms-id dynamically
+add new player tag event: ContentVideoTimeChanged
+add player tag methods: mute, unmute, isMuted
+add AdPlayerTagConfiguration property trackContentTimeChange
+remove Sentry
+FIX:
+the crashed after "strip -rSTx" had been applied to the SDK
+stability improved
+
+v1.11.2
+FIX: AdPlayerTag.pause() is not working for instream player
 v1.11.1
 *  Add custom Instream content: cmsId and cmsType
 

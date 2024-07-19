@@ -1,20 +1,24 @@
 PODS:
-  - AdPlayerSDK (1.11.1):
+  - AdPlayerSDK (1.11.7):
     - GoogleAds-IMA-iOS-SDK (~> 3.1)
-  - GoogleAds-IMA-iOS-SDK (3.22.1)
+  - GoogleAds-IMA-iOS-SDK (3.23.0)
+  - SwiftLint (0.55.1)
 
 DEPENDENCIES:
-  - AdPlayerSDK (= 1.11.1)
+  - AdPlayerSDK (= 1.11.7)
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
     - AdPlayerSDK
     - GoogleAds-IMA-iOS-SDK
+    - SwiftLint
 
 SPEC CHECKSUMS:
-  AdPlayerSDK: ebb7866de755acba885746b36bfe669013ee9893
-  GoogleAds-IMA-iOS-SDK: 160c3616b8371b58016e30aaf441e71d6d9e8f7d
+  AdPlayerSDK: 37b6fc6f224dba1b5b46901a819ffec2b8608d7a
+  GoogleAds-IMA-iOS-SDK: ee2a68ed7a1a17c7bb81bdb1b81590b35a3fc8f3
+  SwiftLint: 3fe909719babe5537c552ee8181c0031392be933
 
-PODFILE CHECKSUM: bb75db459e69569e3318fa8f52ddd9e4511e5216
+PODFILE CHECKSUM: 6596b19c608bb6a5f3d8b976e9cba63adc11a29d
 
 COCOAPODS: 1.15.2

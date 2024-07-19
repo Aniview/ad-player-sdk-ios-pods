@@ -88,4 +88,4 @@ https://aniview.com/
 
 ## License
 
-All rights reserved to ANIVIEW LTD 2023
+All rights reserved to ANIVIEW LTD 2024

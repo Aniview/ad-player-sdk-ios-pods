@@ -3,7 +3,9 @@ platform :ios, '14.0'
 target 'ADPlayerBasicSample' do
   use_frameworks!
 
-  pod 'AdPlayerSDK', '1.11.1'
+  pod 'AdPlayerSDK', '1.11.7'
+
+  pod 'SwiftLint'
 
 # uncomment the following to use RxSwift based config (iOS < 13)
 #  pod 'RxSwift' # required when iOS < 13

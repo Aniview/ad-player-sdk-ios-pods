@@ -8,7 +8,6 @@
 
 import AdPlayerSDK
 import UIKit
-import Combine
 
 final class TableViewExampleVC: UIViewController {
     private let tagId: String

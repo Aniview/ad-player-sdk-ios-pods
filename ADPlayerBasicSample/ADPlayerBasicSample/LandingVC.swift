@@ -53,8 +53,13 @@ final class LandingVC: UIViewController {
     )
 
     private lazy var tableViewButton = makeMenuButton(
-        title: "TableView",
+        title: "Table View",
         action: #selector(onTableViewExampleTap)
+    )
+
+    private lazy var collectionViewButton = makeMenuButton(
+        title: "Collection View",
+        action: #selector(onCollectionViewExampleTap)
     )
 
     private lazy var interstitialButton = makeMenuButton(
@@ -69,26 +74,14 @@ final class LandingVC: UIViewController {
         backGroundColor: .systemBackground
     )
 
-    private func makeMenuButton(
-        title: String,
-        action: Selector,
-        titleColor: UIColor = .white,
-        backGroundColor: UIColor = .gray
-    ) -> UIButton {
-        let button = UIButton()
-        button.setTitle(title, for: .normal)
-        button.addTarget(self, action: action, for: .touchUpInside)
-        var configuration = UIButton.Configuration.filled()
-        button.setTitleColor(titleColor, for: .normal)
-        configuration.baseBackgroundColor = backGroundColor
-        configuration.contentInsets = .init(top: 10, leading: 20, bottom: 10, trailing: 20)
-        button.configuration = configuration
-        return button
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupLayout()
+        initializeTag()
+    }
+
+    private func setupLayout() {
         view.backgroundColor = .systemBackground
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
@@ -99,6 +92,7 @@ final class LandingVC: UIViewController {
 
         stackView.addArrangedSubview(singleAdButton)
         stackView.addArrangedSubview(tableViewButton)
+        stackView.addArrangedSubview(collectionViewButton)
         stackView.addArrangedSubview(interstitialButton)
         stackView.addArrangedSubview(preloadButton)
 
@@ -108,7 +102,6 @@ final class LandingVC: UIViewController {
             progressView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             progressView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-        initializeTag() {}
     }
 
     @objc
@@ -124,6 +117,12 @@ final class LandingVC: UIViewController {
     }
 
     @objc
+    private func onCollectionViewExampleTap() {
+        let viewController = CollectionViewExampleVC(tagId: tagId)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    @objc
     private func onInterstitialExampleTap() {
         let viewController = InterstitialExampleVC(publisherId: publisherId, tagId: tagId)
         navigationController?.pushViewController(viewController, animated: true)
@@ -131,35 +130,25 @@ final class LandingVC: UIViewController {
 
     @objc
     private func onPreloadTap() {
-        initializeTag { [weak self] in
-            guard let self = self,
-                  let playerTag = playerTag else {
-                return
-            }
-            isInProgress = true
-            playerTag.preload { [weak self] _ in
-                self?.isInProgress = false
-            }
+        isInProgress = true
+        playerTag?.preload { [weak self] _ in
+            self?.isInProgress = false
         }
     }
 
-    private func initializeTag(completion: @escaping () -> Void) {
+    private func initializeTag() {
         let tagConfig = AdPlayerTagConfiguration(tagId: tagId)
 
         let publisher = AdPlayerPublisherConfiguration(publisherId: publisherId, tagConfig)
         isInProgress = true
         AdPlayer.initializePublisher(publisher) { [weak self] result in
             guard let self else { return }
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                isInProgress = false
-                switch result {
-                case .success(let readyTags):
-                    playerTag = readyTags.first
-                case .failure(let error):
-                    showAlert("Failed to initialize publisher.  \(error.localizedDescription)")
-                }
-                completion()
+            isInProgress = false
+            switch result {
+            case .success(let readyTags):
+                playerTag = readyTags.first
+            case .failure(let error):
+                showAlert("Failed to initialize publisher.  \(error.localizedDescription)")
             }
         }
     }
@@ -172,5 +161,22 @@ final class LandingVC: UIViewController {
         )
         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         self.present(alert, animated: true)
+    }
+
+    private func makeMenuButton(
+        title: String,
+        action: Selector,
+        titleColor: UIColor = .white,
+        backGroundColor: UIColor = .systemBlue
+    ) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.addTarget(self, action: action, for: .touchUpInside)
+        var configuration = UIButton.Configuration.filled()
+        button.setTitleColor(titleColor, for: .normal)
+        configuration.baseBackgroundColor = backGroundColor
+        configuration.contentInsets = .init(top: 10, leading: 40, bottom: 10, trailing: 40)
+        button.configuration = configuration
+        return button
     }
 }

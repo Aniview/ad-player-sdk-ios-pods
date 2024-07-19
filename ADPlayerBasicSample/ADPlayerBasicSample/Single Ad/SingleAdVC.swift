@@ -7,7 +7,6 @@
 
 import AdPlayerSDK
 import UIKit
-import Combine
 
 final class SingleAdVC: UIViewController {
     private let tagId: String
