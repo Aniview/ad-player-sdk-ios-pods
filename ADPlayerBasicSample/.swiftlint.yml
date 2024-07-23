@@ -1,6 +1,0 @@
-included:
-  - ADPlayerBasicSample
-
-disabled_rules:
-- todo
-- comment_spacing

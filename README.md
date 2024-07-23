@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if #available(iOS 14, *) {
+        DispatchQueue.main.async { // ensure the app view is ready
             ATTrackingManager.requestTrackingAuthorization { status in
                 print("Tracking: authorized:", status == .authorized)
             }
@@ -80,7 +80,7 @@ class YourViewController: UIViewController {
 ```
 
 ## Sample project
-[ADPlayerBasicSample](https://github.com/Aniview/ad-player-sdk-ios-pods/tree/main/ADPlayerBasicSample)
+[ADPlayerBasicSample](https://github.com/Aniview/ad-player-sdk-ios-pods/tree/main/AdPlayerSample)
 
 ## Author
 
