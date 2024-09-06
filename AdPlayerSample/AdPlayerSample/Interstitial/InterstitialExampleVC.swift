@@ -100,7 +100,12 @@ final class InterstitialExampleVC: UIViewController {
     private func onShowButtonTap() {
         guard let playerTag = playerTag else { return }
         statusLabel.text = ""
-        let interstitialBuilder = playerTag.asInterstitial()
-        interstitialBuilder.launch()
+        playerTag.asInterstitial().withConfiguration(
+            .init(
+                stalledVideoTimeout: 5,
+                showCloseButtonAfterAdDuration: true
+            )
+        )
+        .launch()
     }
 }

@@ -156,7 +156,7 @@ final class LandingVC: UIViewController {
     private func initializeTag() {
         let tagConfig = AdPlayerTagConfiguration(tagId: tagId)
 
-        let publisher = AdPlayerPublisherConfiguration(publisherId: publisherId, tagConfig)
+        let publisher = AdPlayerPublisherConfiguration(publisherId: publisherId, tag: tagConfig)
         isInProgress = true
         AdPlayer.initializePublisher(publisher) { [weak self] result in
             guard let self else { return }
