@@ -10,9 +10,9 @@ import UIKit
 import AppTrackingTransparency
 
 private enum Constants {
-    static let publisherId = "565c56d3181f46bd608b459a" // replace with yor data
-    static let tagId = "646a0773ea9d79fc1d0d45b4" // replace with yor data
-    static let storeURL = "https://apps.apple.com/us/app/adplayer-sample/id1234567" // replace with yor data
+    static let publisherId = "565c56d3181f46bd608b459a" // replace with your data
+    static let tagId = "646a0773ea9d79fc1d0d45b4" // replace with your data
+    static let storeURL = "https://apps.apple.com/us/app/adplayer-sample/id1234567" // replace with your data
 }
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

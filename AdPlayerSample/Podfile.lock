@@ -1,10 +1,10 @@
 PODS:
-  - AdPlayerSDK (1.12.2):
+  - AdPlayerSDK (1.13.7):
     - GoogleAds-IMA-iOS-SDK (~> 3.1)
-  - GoogleAds-IMA-iOS-SDK (3.23.0)
+  - GoogleAds-IMA-iOS-SDK (3.28.10)
 
 DEPENDENCIES:
-  - AdPlayerSDK (= 1.12.2)
+  - AdPlayerSDK (= 1.13.7)
 
 SPEC REPOS:
   trunk:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - GoogleAds-IMA-iOS-SDK
 
 SPEC CHECKSUMS:
-  AdPlayerSDK: 7191fe8f32b31715234b1a2843382921205a83bf
-  GoogleAds-IMA-iOS-SDK: ee2a68ed7a1a17c7bb81bdb1b81590b35a3fc8f3
+  AdPlayerSDK: 9010b6141ee039ddb7d916e6903663f6a598964b
+  GoogleAds-IMA-iOS-SDK: 2d7d6e4736a5b29c21e5067fdd75f500144e1dcd
 
-PODFILE CHECKSUM: 1e22045f857711c40bd5d18cc0e95d73e1dddff9
+PODFILE CHECKSUM: 8d9a3542502debdd9bb3a9c755cdf580fa9ec020
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
